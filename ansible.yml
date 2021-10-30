@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+
+  vars:
+    helloworld: Meow!
+
+  tasks:
+    
+    - name: Install the httpd package
+      yum: 
+        name: httpd
+
+    - name: Start the httpd service
+      service: 
+        name: httpd 
+        state: started
